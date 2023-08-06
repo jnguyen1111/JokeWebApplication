@@ -2,6 +2,8 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<!--if user is logged in It displays welcome message with user's mame, also displays a logout buton which redirects user to index route after it is clicked
+if user is not logged in it will display on the navigation bar a login and register button -->
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {

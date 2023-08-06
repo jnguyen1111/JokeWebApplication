@@ -1,20 +1,23 @@
-﻿
-<h4>Search for a Joke</h4>
+﻿<!--This file allows one to be rerouted to search for a quote if found it will be displayed-->
+<h4>Search for a Joke below</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-10">
+        <!--when this form is submitted it calls the showSearchResults method in the controller-->
+
         <form asp-action="ShowSearchResults">
             <div class="form-group">
                 <label for="SearchPhrase" class="control-label"></label>
                 <input name="SearchPhrase" class="form-control" />
             </div>
             <div class="form-group">
+                <br />
                 <input type="submit" value="Search" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
+<br />
 <div>
     <a asp-action="Index">Back to List</a>
 </div>

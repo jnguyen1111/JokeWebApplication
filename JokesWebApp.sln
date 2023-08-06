@@ -3,7 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokesWebApp", "JokesWebApp.csproj", "{0BCACA85-D47F-40BA-8012-32BDC65CEBB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JokesWebApp", "JokesWebApp.csproj", "{0BCACA85-D47F-40BA-8012-32BDC65CEBB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "screenshots", "screenshots", "{7D8522FE-4CE9-4DE4-A75D-651FF2FAC835}"
+	ProjectSection(SolutionItems) = preProject
+		screenshots\authenticationpage.PNG = screenshots\authenticationpage.PNG
+		screenshots\detailpage.PNG = screenshots\detailpage.PNG
+		screenshots\homepage.PNG = screenshots\homepage.PNG
+		screenshots\indexpage.PNG = screenshots\indexpage.PNG
+		screenshots\privacypage.PNG = screenshots\privacypage.PNG
+		screenshots\searchpage.PNG = screenshots\searchpage.PNG
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E9608A03-B10A-49DB-B453-FB790B9C6AB8}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -21,9 +21,11 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Jokes
+        //asyncronously fetch jokes form database to display them
         public async Task<IActionResult> Index()
         {
               return _context.Joke != null ? 
+                          //if the database is not null make the jokes into a list
                           View(await _context.Joke.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Joke'  is null.");
         }
@@ -32,6 +34,7 @@ namespace JokesWebApp.Controllers
         public async Task<IActionResult> ShowSearchForm()
         {
             return _context.Joke != null ?
+                        //by default the view will look for the same action method called
                         View() :
                         Problem("Search bar is null.");
         }
@@ -45,7 +48,7 @@ namespace JokesWebApp.Controllers
         }
 
 
-        // GET: Jokes/Details/5
+        // GET: Jokes/Details/ with given id
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Joke == null)
@@ -53,8 +56,7 @@ namespace JokesWebApp.Controllers
                 return NotFound();
             }
 
-            var joke = await _context.Joke
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var joke = await _context.Joke.FirstOrDefaultAsync(m => m.Id == id);
             if (joke == null)
             {
                 return NotFound();
@@ -71,8 +73,6 @@ namespace JokesWebApp.Controllers
         }
 
         // POST: Jokes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -87,7 +87,7 @@ namespace JokesWebApp.Controllers
             return View(joke);
         }
 
-        // GET: Jokes/Edit/5
+        // GET: Jokes/Edit/
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -105,8 +105,8 @@ namespace JokesWebApp.Controllers
         }
 
         // POST: Jokes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //the bind attribute allows us to bind properties pretaining to a model aka model binding
+        //only focuses on properties that important and ignores any extra info that is passed
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -140,7 +140,7 @@ namespace JokesWebApp.Controllers
             return View(joke);
         }
 
-        // GET: Jokes/Delete/5
+        // GET: Jokes/Delete/
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
@@ -159,7 +159,7 @@ namespace JokesWebApp.Controllers
             return View(joke);
         }
 
-        // POST: Jokes/Delete/5
+        // POST: Jokes/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]
